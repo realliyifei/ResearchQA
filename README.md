@@ -7,14 +7,14 @@
   🗂️ <a href="https://huggingface.co/datasets/realliyifei/ResearchQA">Dataset</a>
 </p>
 
-ResearchQA is designed to evaluate scholarly question answering across 75 fields, using questions and rubrics mined from survey papers. The dataset consists of 3,750 questions in the test set, 703 in the validation set, and  a total of 21,414 questions. Both the questions and rubrics have been validated by 31 Ph.D.-level annotators across 8 fields.
+ResearchQA is designed to evaluate scholarly question answering across 75 fields, using questions and rubrics mined from survey papers. The dataset consists of 3,750 questions in the test set, 703 in the validation set, and  a total of 21,414 questions. Both the questions and rubrics have been validated by 31 Ph.D. level annotators across 8 fields.
 
 ## Introduction
 
 This repository contains the necessary scripts to download the ResearchQA dataset and compute rubric coverage scores.
 
 *   `download_researchqa.py`: Downloads the ResearchQA dataset from the Hugging Face Hub. You can specify different data splits.
-*   `compute_coverage.py`: Computes rubric coverage scores for a given set of responses to the ResearchQA questions. This script uses an OpenAI model (e.g., GPT-4) to evaluate how well a response covers the rubric items associated with a question.
+*   `compute_coverage.py`: Computes rubric coverage scores for a given set of responses to the ResearchQA questions. This script uses gpt-4.1-mini to evaluate how well a response covers the rubric items associated with a question.
 
 ## Installation
 
@@ -29,10 +29,6 @@ pip install -r requirements.txt
 ```
 
 ## Configuration
-
-To use the scripts, you need to configure your API keys for OpenAI and Hugging Face.
-
-### OpenAI API Key
 
 ```bash
 # OpenAI API Key
