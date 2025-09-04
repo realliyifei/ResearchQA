@@ -3,7 +3,7 @@
 </h1>
 <p align="center">
   🌐 <a href="https://cylumn.com/ResearchQA">Website</a> | 
-  📄 <a href="">Paper</a> | 
+  📄 <a href="https://arxiv.org/abs/2509.00496">Paper</a> | 
   🗂️ <a href="https://huggingface.co/datasets/realliyifei/ResearchQA">Dataset</a>
 </p>
 
@@ -71,9 +71,9 @@ Example `responses.json`:
 If you find our work helpful, please cite us with
 ```bibtex
 @article{yifei2025researchqa,
-    title={Research{QA}: Evaluating Scholarly Question Answering Across 75 Fields with Survey-Mined Questions and Rubrics},
-    author={Yifei, Li S. and Chang, Allen and Malaviya, Chaitanya and Yatskar, Mark},
-    journal={arXiv preprint},
-    year={2025}
+  title={Research{QA}: Evaluating Scholarly Question Answering at Scale Across 75 Fields with Survey-Mined Questions and Rubrics},
+  author={Yifei, Li S. and Chang, Allen and Malaviya, Chaitanya and Yatskar, Mark},
+  journal={arXiv preprint},
+  year={2025}
 }
 ```
