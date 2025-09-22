@@ -66,9 +66,16 @@ Example `responses.json`:
 }
 ```
 
+## Compute Elo Rankings
+
+The pairwise comparison can be found [here](src/judge_systems_by_gpt.py), and the leaderboard notebook refers to [here](notebooks/leaderboard.ipynb).
+
+## Resource 
+
+You can download the [18 systems outputs]((https://drive.google.com/drive/folders/1m_kpm5I1sWrFrjpl4YBHb2pfzCodgfdw?usp=sharing) ) and their [rubric coverage scores](https://drive.google.com/file/d/1x7drCPPgnighoSk3wa3tAIAJ4hP_hPjK/view?usp=sharing) to check the performances and run your own Elo rankings.
+
 ## Citation
 
-If you find our work helpful, please cite us with
 ```bibtex
 @article{yifei2025researchqa,
   title={Research{QA}: Evaluating Scholarly Question Answering at Scale Across 75 Fields with Survey-Mined Questions and Rubrics},
