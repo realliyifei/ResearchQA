@@ -72,7 +72,7 @@ The pairwise comparison can be found [here](src/judge_systems_by_gpt.py), and th
 
 ## Resource 
 
-You can download the [18 systems outputs]((https://drive.google.com/drive/folders/1m_kpm5I1sWrFrjpl4YBHb2pfzCodgfdw?usp=sharing) ) and their [rubric coverage scores](https://drive.google.com/file/d/1x7drCPPgnighoSk3wa3tAIAJ4hP_hPjK/view?usp=sharing) to check the performances and run your own Elo rankings. Also, the  pairwise data for human evaluation is [here](https://drive.google.com/file/d/1WXTsooqG8PZAbT-j3k_nJuveWVH-dnBB/view?usp=drive_link).
+You can download the [18 systems outputs](https://drive.google.com/drive/folders/1m_kpm5I1sWrFrjpl4YBHb2pfzCodgfdw?usp=sharing) and their [rubric coverage scores](https://drive.google.com/file/d/1x7drCPPgnighoSk3wa3tAIAJ4hP_hPjK/view?usp=sharing) to check the performances and run your own Elo rankings. Also, the  pairwise data for human evaluation is [here](https://drive.google.com/file/d/1WXTsooqG8PZAbT-j3k_nJuveWVH-dnBB/view?usp=drive_link).
 
 ## Citation
 
