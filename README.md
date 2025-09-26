@@ -66,13 +66,19 @@ Example `responses.json`:
 }
 ```
 
-## Compute Elo Rankings
+### Compute Elo Rankings
 
 The pairwise comparison can be found [here](src/judge_systems_by_gpt.py), and the leaderboard notebook refers to [here](notebooks/leaderboard.ipynb).
 
+### Leaderboar Submission
+
+You are welcome to submit your system ouputs and scores to the leaderboard! The instruction is [here](https://docs.google.com/document/d/19Dj-iqa5EXL4x4ejZ5a21h2xaE8iUIeuooHmCCQKfTc/edit?usp=sharing).
+
 ## Resource 
 
-You can download the [18 systems outputs](https://drive.google.com/drive/folders/1m_kpm5I1sWrFrjpl4YBHb2pfzCodgfdw?usp=sharing) and their [rubric coverage scores](https://drive.google.com/file/d/1x7drCPPgnighoSk3wa3tAIAJ4hP_hPjK/view?usp=sharing) to check the performances and run your own Elo rankings. Also, the  pairwise data for human evaluation is [here](https://drive.google.com/file/d/1WXTsooqG8PZAbT-j3k_nJuveWVH-dnBB/view?usp=drive_link).
+You can download the [18 systems outputs](https://drive.google.com/drive/folders/1m_kpm5I1sWrFrjpl4YBHb2pfzCodgfdw?usp=sharing) and their [rubric coverage scores](https://drive.google.com/file/d/1x7drCPPgnighoSk3wa3tAIAJ4hP_hPjK/view?usp=sharing) to check the performances and run your own Elo rankings. 
+
+Also, the  pairwise data for human evaluation is in this [folder](https://drive.google.com/drive/folders/1E55AP9xnpjsnk_BTCMceg41ndPFLSdSn?usp=sharing).
 
 ## Citation
 
