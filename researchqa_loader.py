@@ -1,11 +1,12 @@
 import json
 from dataclasses import dataclass
-from typing import List
+from typing import List, Optional
 
 @dataclass
 class RubricItem:
     rubric_item: str
     type: str
+    citation_metadata: Optional[str] = None
 
 @dataclass
 class ResearchQAItem:
