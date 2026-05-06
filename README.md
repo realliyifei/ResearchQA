@@ -86,7 +86,8 @@ Also, the  pairwise data for human evaluation is in this [folder](https://drive.
 @article{yifei2025researchqa,
   title={Research{QA}: Evaluating Scholarly Question Answering at Scale Across 75 Fields with Survey-Mined Questions and Rubrics},
   author={Yifei, Li S. and Chang, Allen and Malaviya, Chaitanya and Yatskar, Mark},
-  journal={arXiv preprint},
-  year={2025}
+  journal={Transactions of the Association for Computational Linguistics},
+  year={2026},
+  note={To appear},
 }
 ```
