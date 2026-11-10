@@ -1,10 +1,11 @@
 import argparse
 import json
+import os
 from pathlib import Path
 from tqdm import tqdm
 from researchqa_loader import load_researchqa_data
 from typing import List, Dict
-import openai  
+from openai import OpenAI
 import logging
 from retry import retry
 
@@ -16,13 +17,41 @@ logger = logging.getLogger(__name__)
 class BatchProcessingError(Exception):
     pass
 
+OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+
+_client = None
+_backend = "openai"
+
+def get_client() -> OpenAI:
+    # Create the client on first use, so --help works without an API key.
+    global _client
+    if _client is None:
+        if _backend == "openrouter":
+            _client = OpenAI(
+                base_url=OPENROUTER_BASE_URL,
+                api_key=os.environ["OPENROUTER_API_KEY"],
+            )
+        else:
+            # Reads OPENAI_API_KEY from the environment.
+            _client = OpenAI()
+    return _client
+
 def call_gpt(prompt: str, model: str = "gpt-4") -> str:
-    response = openai.ChatCompletion.create(
+    kwargs = {}
+    if _backend == "openrouter":
+        # OpenRouter model ids have the form "<provider>/<model>".
+        if "/" not in model:
+            model = f"openai/{model}"
+        # Serve the request from OpenAI only, so the judge is the same model
+        # as the one used in the paper and not a copy hosted by another provider.
+        kwargs["extra_body"] = {"provider": {"order": ["openai"], "allow_fallbacks": False}}
+    response = get_client().chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}],
-        temperature=0
+        temperature=0,
+        **kwargs
     )
-    return response['choices'][0]['message']['content'].strip()
+    return response.choices[0].message.content.strip()
 
 def build_prompt(response: str, questions: List[str]) -> str:
     prompt = (
@@ -161,6 +190,9 @@ if __name__ == "__main__":
     parser.add_argument('--responses', type=str, required=True, help='Path to response map JSON file (id -> response dict)')
     parser.add_argument('--output', type=str, required=True, help='Path to save rubric coverage results')
     parser.add_argument('--batch_size', type=int, default=8, help='Batch size for rubric items')
-    parser.add_argument('--model', type=str, default='gpt-4.1-mini', help='OpenAI model name')
+    parser.add_argument('--model', type=str, default='gpt-4.1-mini', help='Judge model name (on OpenRouter, "openai/" is added if no provider is given)')
+    parser.add_argument('--backend', type=str, choices=['openai', 'openrouter'], default='openai',
+                        help='API to use: openai (OPENAI_API_KEY) or openrouter (OPENROUTER_API_KEY)')
     args = parser.parse_args()
+    _backend = args.backend
     compute_coverage(args.data, args.responses, args.output, args.batch_size, args.model) 
