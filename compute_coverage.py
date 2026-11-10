@@ -4,7 +4,7 @@ from pathlib import Path
 from tqdm import tqdm
 from researchqa_loader import load_researchqa_data
 from typing import List, Dict
-import openai  
+from openai import OpenAI
 import logging
 from retry import retry
 
@@ -16,13 +16,22 @@ logger = logging.getLogger(__name__)
 class BatchProcessingError(Exception):
     pass
 
+_client = None
+
+def get_client() -> OpenAI:
+    # Create the client on first use. It reads OPENAI_API_KEY from the environment.
+    global _client
+    if _client is None:
+        _client = OpenAI()
+    return _client
+
 def call_gpt(prompt: str, model: str = "gpt-4") -> str:
-    response = openai.ChatCompletion.create(
+    response = get_client().chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}],
         temperature=0
     )
-    return response['choices'][0]['message']['content'].strip()
+    return response.choices[0].message.content.strip()
 
 def build_prompt(response: str, questions: List[str]) -> str:
     prompt = (
