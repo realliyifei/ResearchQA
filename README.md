@@ -33,6 +33,8 @@ pip install -r requirements.txt
 ```bash
 # OpenAI API Key
 export OPENAI_API_KEY="your-openai-api-key"
+# OpenRouter API Key (only for --backend openrouter)
+export OPENROUTER_API_KEY="your-openrouter-api-key"
 # Hugging Face Hub Token (if download automatically)
 export HUGGING_FACE_HUB_TOKEN="your-hugging-face-token"
 ```
@@ -64,6 +66,16 @@ Example `responses.json`:
     "answer": "This is the model's answer to question 2."
   }
 }
+```
+
+Run the script with the OpenAI API (default):
+```bash
+python compute_coverage.py --data test.json --responses responses.json --output coverage.json
+```
+
+Or run it through [OpenRouter](https://openrouter.ai) with `--backend openrouter`. The request is pinned to the OpenAI provider (no fallback to other providers), so the judge is still `gpt-4.1-mini` from OpenAI:
+```bash
+python compute_coverage.py --backend openrouter --data test.json --responses responses.json --output coverage.json
 ```
 
 ### Compute Elo Rankings
